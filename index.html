@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohitha's Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Reset and Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #333;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center; /* Centering the nav items */
+      flex-grow: 1;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: center; /* Ensures text is centered inside each link */
+      align-items: center; /* Centers the text vertically */
+      text-align: center; /* Ensures text is centered horizontally */
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+      transition: 0.3s;
+    }    
+
+    /* Home Section */
+    #home {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      background-color: #f8f8f8;
+    }
+
+    #home img {
+      border-radius: 50%;
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    #home h1 {
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+
+    /* About Section */
+    #about {
+      background-color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    #about .content {
+      display: flex;
+      flex-direction: column; /* Change to column */
+      justify-content: center;
+      align-items: center; /* Align center vertically */
+      text-align: center; /* Align text center */
+    }
+
+    #about h3 {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    #about p {
+      max-width: 600px;
+      font-size: 1.1rem;
+    }
+
+    /* Services Section */
+    #services {
+      background-color: #f8f8f8;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #services h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .services-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+    }
+
+    .service-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 30%;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card i {
+      font-size: 3rem;
+      color: #f39c12;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+    /* Skills Section */
+    #skills {
+      background-color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #skills h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-bar {
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      height: 10px;
+      margin-bottom: 15px;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 20px;
+    }
+
+    .html { width: 90%; background-color: #e74c3c; }
+    .css { width: 85%; background-color: #3498db; }
+    .js { width: 75%; background-color: #f39c12; }
+    .react { width: 70%; background-color: #2ecc71; }
+
+    /* Projects Section */
+    #projects {
+      background-color: #f8f8f8;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #projects h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .project-card {
+      width: 30%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card p {
+      color: #777;
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #contact form input,
+    #contact form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1.1rem;
+    }
+
+    #contact form button {
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #contact form button:hover {
+      background-color: #e67e22;
+      transition: 0.3s;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: #f39c12;
+      font-weight: 500;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .services-container,
+      .project-cards {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .service-card,
+      .project-card {
+        width: 100%;
+      }
+
+      #about .content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #about img {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="logo"></div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <img src="me.jpg">
+    <h1>Rohitha</h1>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="content">
+      <p>
+        I'm Rohitha, a web developer with a passion for creating dynamic and responsive websites. I specialize in front-end and back-end development, working with technologies like HTML, CSS, JavaScript, and React. My goal is to build applications that are not only functional but also visually stunning.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>My Services</h2>
+    <div class="services-container">
+      <div class="service-card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web Development</h3>
+        <p>I create responsive websites that provide an excellent user experience across all devices.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile App Development</h3>
+        <p>Building mobile applications using modern tools and frameworks like React Native.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-cogs"></i>
+        <h3>Backend Development</h3>
+        <p>Creating server-side applications using Node.js, Express, and database management systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div>
+      <div class="skill-bar"><div class="skill-fill html"></div></div>
+      <p>HTML - 90%</p>
+      <div class="skill-bar"><div class="skill-fill css"></div></div>
+      <p>CSS - 85%</p>
+      <div class="skill-bar"><div class="skill-fill js"></div></div>
+      <p>JavaScript - 75%</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7VXPR9s5rvOOWekESrFPVuhAyuqm5sFhxA&s">
+        <h3>Portfolio Website</h3>
+        <p>A personal website to showcase my web development projects and skills.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVo2xYDi9O7RQQo7J2-roejFmbhV7Glt0KIA&s">
+        <h3>Weather App</h3>
+        <p>A real-time weather app built using JavaScript and an API to provide live weather updates.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5me00hJMrKSePYb9omYqVPYYyen5trwF6hA&s">
+        <h3>Blog Platform</h3>
+        <p>A full-featured blog platform with user authentication, comment sections, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Rohitha | All Rights Reserved. <a href="#">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
